@@ -1,5 +1,15 @@
-before_install: gem install bundler -v 1.13.6
-cache: bundler
 language: ruby
-script: bundle exec rake test
-sudo: false
+
+addons:
+  code_climate:
+    repo_token: f8b5765bedabd1064251ecc502a138f4a670c10685528c9d9495c8a53fa256f8
+
+cache:
+  - bundler
+
+before_install:
+  - gem install bundler -v 1.13.6
+
+script:
+  - bundle exec rake test
+  - bundle exec codeclimate-test-reporter
